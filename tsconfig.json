@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
+    "jsx": "preserve",
+    "importHelpers": true,
+    "sourceMap": false,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "lib": [
+      "esnext",
+      "dom"
+    ],
+    "paths": {
+      "@/*": [
+        "./src/render/*"
+      ],
+      "main/*": [
+        "./src/main/*"
+      ],
+      "$/*": [
+        "./*"
+      ],
+    }
+  },
+  "include": [
+    "src/render/**/*.ts",
+    "src/render/**/*.d.ts",
+    "src/render/**/*.tsx",
+    "src/render/**/*.vue"
+  ],
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
+}

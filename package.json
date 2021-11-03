@@ -1,0 +1,79 @@
+{
+  "license": "MIT",
+  "version": "0.0.2",
+  "main": "dist/main/main.js",
+  "name": "electron_for_vite",
+  "description": "一个灰常简单的electron整合vite的模板",
+  "author": "SngBlog",
+  "scripts": {
+    "dev": "node -r ts-node/register script/dev --env=development",
+    "dev:render": "vite",
+    "build:render": "vue-tsc --noEmit && vite build",
+    "build:main": "node -r ts-node/register script/dev --env=production",
+    "build": "rimraf dist && yarn run build:render && yarn run build:main && electron-builder",
+    "serve": "vite preview"
+  },
+  "build": {
+    "appId": "1622583480@qq.com",
+    "asar": true,
+    "directories": {
+      "output": "release/${version}"
+    },
+    "files": [
+      "!node_modules",
+      "dist/**"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "${productName}_${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "deleteAppDataOnUninstall": false
+    }
+  },
+  "dependencies": {
+    "less": "^4.1.1",
+    "vue": "^3.2.16",
+    "vue-router": "^4.0.12"
+  },
+  "devDependencies": {
+    "@rollup/plugin-alias": "^3.1.5",
+    "@rollup/plugin-commonjs": "^20.0.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^13.0.4",
+    "@types/node": "^16.7.6",
+    "@types/quill": "^2.0.9",
+    "@vitejs/plugin-vue": "^1.2.5",
+    "@vue/compiler-sfc": "^3.0.5",
+    "@vueup/vue-quill": "^1.0.0-beta.7",
+    "acorn": "^8.4.1",
+    "concurrently": "^6.2.1",
+    "electron": "^14.0.1",
+    "electron-builder": "^22.11.7",
+    "fs": "^0.0.1-security",
+    "rollup": "^2.56.2",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.30.0",
+    "ts-node": "^10.2.0",
+    "typescript": "^4.3.2",
+    "vite": "^2.6.13",
+    "vitejs-plugin-electron": "^0.1.3",
+    "vue-tsc": "^0.0.24"
+  },
+  "keywords": [
+    "vite",
+    "electron",
+    "vue3",
+    "rollup"
+  ]
+}
