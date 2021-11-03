@@ -32,3 +32,4 @@
 - 未添加任何魔改electron和vue行为
 - 全靠一个 /script/dev.ts作为支撑
 - ant disign vue 按需引用打包后可能会出现问题（router-view所有的样式全部消失）取消css代码分割即可，暂时不知道是vite还是ant disgign的问题 可能是vite问题（鬼知道呢 :D)
+- 当然如果你不需要vite 和vue 可以通过改动 script去实现 这是完全可行的方案
